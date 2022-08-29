@@ -1,6 +1,6 @@
-`include "./src/pos_add.v"
+`include "./src/pos_sub.v"
 
-module addition (a, b, c);
+module subtraction (a, b, c);
 
 // bit depth
 localparam BIT_DEPTH = 32;
@@ -8,6 +8,6 @@ localparam BIT_DEPTH = 32;
 input wire [BIT_DEPTH-1:0] a, b;
 output wire [BIT_DEPTH:0] c;
 
-pos_add #(BIT_DEPTH) ADD (a, b, c);
+pos_sub #(BIT_DEPTH) SUB (a, b, c);
 
 endmodule
