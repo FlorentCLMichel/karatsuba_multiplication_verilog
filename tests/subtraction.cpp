@@ -3,6 +3,7 @@
 #include "verilated.h"
 
 #define MODULE Vsubtraction
+const static unsigned int N_BITS = 14;
 
 // subtraction function via the Verilog module
 unsigned int sub(unsigned int x, unsigned int y, 
@@ -30,18 +31,16 @@ int main(int argc, char** argv, char** env) {
     // define the module
     MODULE* top = new MODULE {contextp};
 
-    // inputs for the test
-    std::vector<unsigned int> x { 1, 2, 4, 8, 16 };
-    std::vector<unsigned int> y { 1, 2, 3, 4, 5 };
-
     // perform the sums and check the results
-    for (unsigned int i = 0; i < x.size(); i++) {
-        unsigned int z = sub(x[i], y[i], contextp, top);
-        if (z != x[i] - y[i]) {
-            std::cout << "FAILED" << std::endl;
-            std::cout << x[i] << " - " << y[i] << " != " << z << std::endl;
-            return 1;
-        };
+    for (unsigned int i = 0; i < (1 << N_BITS); i++) {
+        for (unsigned int j = 0; j <= i; j++) {
+            unsigned int k = sub(i, j, contextp, top);
+            if (k != i - j) {
+                std::cout << "FAILED" << std::endl;
+                std::cout << i << " - " << j << " != " << k << std::endl;
+                return 1;
+            };
+        }
     }
 
     std::cout << "TEST PASSED" << std::endl;
