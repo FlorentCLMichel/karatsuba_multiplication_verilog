@@ -6,9 +6,9 @@ This is a simple implementation of the Karatsuba multiplication algorithm in Ver
 
 ### Principle
 
-Let $N$ be a positive integer. We assume we have a computing device which can perform mutiplications of non-negativeintegers smaller than $N$.
+Let $N$ be a positive integer. We assume we have a computing device which can perform mutiplications of non-negative integers smaller than $N$.
 
-Let $a$ and $b$ be two non-negative integers smaller than $N^2$, and $c = a \times sb$. We can choose four non-negative integers $a_0$ $a_1$, $b_0$, and $b_1$ smaler than $N$ such that $a = a_1 N + a_0$ and $b = b_1 N + b_0$. Then, 
+Let $a$ and $b$ be two non-negative integers smaller than $N^2$, and $c = a \times b$. We can choose four non-negative integers $a_0$ $a_1$, $b_0$, and $b_1$ smaler than $N$ such that $a = a_1 N + a_0$ and $b = b_1 N + b_0$. Then, 
 
 $$
     c = a_1 b_1 N^2 + (a_1 b_0 + a_0 b_1) N + a_0 b_0 .
@@ -22,7 +22,7 @@ $$
     a_1 b_0 + a_0 b_1 = (a_0 + b_0) (a_1 + b_1) - a_0 b_0 - a_1 b_1 .
 $$
 
-The product $c$ can thus be computed using $3$ multiplications (of numbers with at most $B+1$ bits), $5$ additions, and $2$ subtractions.
+The product $c$ can thus be computed using $3$ multiplications (of numbers with at most $B+1$ bits), $5$ additions, and $2$ subtractions. The small drawback of this approach is that it invomves a multiplication of two numbers which may be as high as $2 (N - 1)$, which is larger than $N$ if $N > 2$. However, in practice it is usually more efficient.
 
 ### Complexity
 
@@ -61,15 +61,22 @@ $$
 
 ### Requirements
 
-(WIP)
+* Verilator (tested Verilator 4.219 devel rev v4.218-19-ge52a4ac7).
+* A C++ compiler compatible with Verilator (tested with g++ 11.2.0).
 
 ### Run a test
 
-To run the test `TEST`, run the command
+If you have `make, you may run the test `TEST` using the command
 
 ```
 make name=TEST test
 ```
+
+You may also use diectly
+```
+verilator --cc --exe --build tests/TEST.cpp tests/TEST.v --top-module TEST
+```
+to build the test. The executable will be placed in `obj_dir/VTEST`.
 
 The tests currently implemented are: 
 
