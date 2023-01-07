@@ -3,13 +3,12 @@
 
 `include "./src/pos_add.v"
 
-/* multiplication of two-bit positive integers
- *
- * Arguments: 
- *  * a: left input
- *  * b: right input
- *  * c: output (4 bits)
- */
+// multiplication of two-bit positive integers
+// 
+// Arguments: 
+//  * a (size 2): left input
+//  * b (size 2): right input
+//  * c (size 4): output
 module mul_2_bits (a, b, c);
 
     // define the inputs and output as wires

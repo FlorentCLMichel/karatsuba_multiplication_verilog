@@ -22,7 +22,7 @@ $$
     a_1 b_0 + a_0 b_1 = (a_0 + b_0) (a_1 + b_1) - a_0 b_0 - a_1 b_1 .
 $$
 
-The product $c$ can thus be computed using $3$ multiplications (of numbers with at most $B+1$ bits), $5$ additions, and $2$ subtractions. The small drawback of this approach is that it invomves a multiplication of two numbers which may be as high as $2 (N - 1)$, which is larger than $N$ if $N > 2$. However, in practice it is usually more efficient.
+The product $c$ can thus be computed using $3$ multiplications (of numbers with at most $B+1$ bits), $5$ additions, and $2$ subtractions. The small drawback of this approach is that it involves a multiplication of two numbers which may be as high as $2 (N - 1)$, which is larger than $N$ if $N > 2$. However, in practice it is usually more efficient.
 
 ### Complexity
 
@@ -61,8 +61,8 @@ $$
 
 ### Requirements
 
-* Verilator (tested Verilator 4.219 devel rev v4.218-19-ge52a4ac7).
-* A C++ compiler compatible with Verilator (tested with g++ 11.2.0).
+* Verilator (tested Verilator 5.003 devel rev v5.002-12-g2a3eabff7).
+* A C++ compiler compatible with Verilator (tested with g++ 11.3.0).
 
 ### Run a test
 
@@ -82,3 +82,12 @@ The tests currently implemented are:
 
 * `addition`: a simple test of the addition module
 * `subtraction`: a simple test of the subtracttion module
+* `mul_2`: multiplication of 2-bit numbers
+
+The command 
+
+```
+make all_tests
+```
+
+compiles and runs all the tests.
