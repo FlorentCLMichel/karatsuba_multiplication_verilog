@@ -3,11 +3,11 @@
 module addition (a, b, c);
 
 // bit depth
-localparam BIT_DEPTH = 14;
+localparam BIT_DEPTH = 16;
 
 input wire [BIT_DEPTH-1:0] a, b;
 output wire [BIT_DEPTH:0] c;
 
-pos_add #(BIT_DEPTH) ADD (a, b, c);
+pos_add #(BIT_DEPTH, BIT_DEPTH) ADD (a, b, c);
 
 endmodule

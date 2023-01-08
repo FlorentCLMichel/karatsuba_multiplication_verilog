@@ -28,7 +28,7 @@ module mul_2_bits (a, b, c);
     assign zero_b_a_0 = a[0] ? zero_b : 3'b0;
 
     // add the results
-    pos_add #(3) ADD (b_zero_a_1, zero_b_a_0, c);
+    pos_add #(3, 3) ADD (b_zero_a_1, zero_b_a_0, c);
 
 endmodule
 
