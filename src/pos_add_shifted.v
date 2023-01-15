@@ -13,7 +13,7 @@
 // Arguments:
 //  a: left input (size N_BITS_L)
 //  b: right input (size N_BITS_R)
-//  c: output (size N_BITS_L+1)
+//  c: output (size N_BITS_L+1 or N_BITS_R+SHIFT+1)
 module pos_add_shifted (a, b, c);
     
     parameter N_BITS_L = 8, // number of bits for the left input

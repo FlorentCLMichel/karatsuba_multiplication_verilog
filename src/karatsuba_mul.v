@@ -1,5 +1,3 @@
-// WORK IN PROGRESS
-
 // multiplication of two positive integers using the Karatsuba algorithm
 //
 // Parameters: 
@@ -72,9 +70,17 @@ if (N_BITS > 2) begin
     wire [2*N_BITS_3-1:0] a0_p_b0_times_a1_p_b1;
     karatsuba_mul #(N_BITS_3) MUL_3 (a0_p_b0, a1_p_b1, a0_p_b0_times_a1_p_b1);
     
-    // TO DO: two subtractions to compute the middle term
+    // Two subtractions to compute the middle term
+    wire [2*N_BITS_3] a0_p_b0_times_a1_p_b1_minus_a0_b_0;
+    wire [N_BITS_1+N_BITS_2-1:0] a0_b1_plus_a1_b0;
+    pos_sub #(N_BITS_3) (a0_p_b0_times_a1_p_b1, a_0_times_b_0, a0_p_b0_times_a1_p_b1_minus_a0_b_0);
+    pos_sub #(N_BITS_3+1) (a0_p_b0_times_a1_p_b1_minus_a0_b_0, a1_times_b1, a0_b1_plus_a1_b0);
+
     
-    // TO DO: logic to compute c (two shifted sums)
+    // Logic to compute c (two shifted sums)
+    wire [2*N_BITS_1+N_BITS_2+1] c1;
+    pos_add_shifted #(N_BITS_3+1, 2*N_BITS_1, N_BITS_2) (a0_b1_plus_a1_b0, a1_times_b1, c1);
+    pos_add_shifted #(2*N_BITS_2, 2*N_BITS_1+N_BITS_2+1, N_BITS_2) (a0_times_b0, c1, c);
 
 end
 
