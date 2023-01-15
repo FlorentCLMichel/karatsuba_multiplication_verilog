@@ -23,8 +23,8 @@ input wire [N_BITS-1:0] a, b;
 // We pad the result with a 0 on the left.
 if (N_BITS == 1) begin
     output wire [1:0] c;
-    assign c[0] = 0;
-    and (c[1], a, b);
+    assign c[1] = 0;
+    and (c[0], a, b);
 end
 
 // If the bit depth is 2, instanciate the `mul_2_bits` module.
