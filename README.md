@@ -1,6 +1,8 @@
 # Karatsuba multiplication
 
-This is a simple implementation of the Karatsuba multiplication algorithm in Verilog. 
+This is a simple implementation of the Karatsuba multiplication algorithm in Verilog. The Karatsuba algorithm has a lower asymptotic complexity than textbook multiplication (in $\Theta(B^{\log_2(3)})$, where $B$ is the bit depth, versus $\Theta(B^2)$), so is typically faster for large numbers.
+
+**NB:** Fourier-based algorithms are even more efficient asymptotically, with complexities in $O(B \, (\log B)^\alpha)$ for positive any $\alpha > 1$.
 
 ## Theory
 
@@ -83,6 +85,7 @@ The tests currently implemented are:
 * `addition`: a simple test of the addition module
 * `subtraction`: a simple test of the subtracttion module
 * `mul_2`: multiplication of 2-bit numbers
+* `karatsuba_1`: first Karatsuba multiplicatio test
 
 The command 
 
