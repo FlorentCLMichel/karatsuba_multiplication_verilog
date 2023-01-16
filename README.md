@@ -21,7 +21,7 @@ The product $c$ of $a$ and $b$ can thus be computed using $4$ multiplications an
 This complexity can be reduced by noting that 
 
 $$
-    a_1 b_0 + a_0 b_1 = (a_0 + b_0) (a_1 + b_1) - a_0 b_0 - a_1 b_1 .
+    a_1 b_0 + a_0 b_1 = (a_0 + a_1) (b_0 + b_1) - a_0 b_0 - a_1 b_1 .
 $$
 
 The product $c$ can thus be computed using $3$ multiplications (of numbers with at most $B+1$ bits), $5$ additions, and $2$ subtractions. The small drawback of this approach is that it involves a multiplication of two numbers which may be as high as $2 (N - 1)$, which is larger than $N$ if $N > 2$. However, in practice it is usually more efficient.

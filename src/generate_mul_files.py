@@ -1,3 +1,5 @@
+# compute the required multiplication modules
+
 from numpy import uintc
 
 def get_required_bit_depths(bit_depth: uintc) -> set :
