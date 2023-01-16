@@ -3,7 +3,7 @@
 #include "verilated.h"
 
 #define MODULE Vkaratsuba_1
-const static unsigned int N_BITS = 8;
+const static unsigned int N_BITS = 12;
 
 // multiplication via the Verilog module
 unsigned int mul(unsigned int x, unsigned int y, MODULE* top)
