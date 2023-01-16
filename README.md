@@ -85,7 +85,7 @@ The tests currently implemented are:
 * `addition`: a simple test of the addition module
 * `subtraction`: a simple test of the subtracttion module
 * `mul_2`: multiplication of 2-bit numbers
-* `karatsuba_1`: first Karatsuba multiplicatio test
+* `karatsuba_1`: first Karatsuba multiplication test
 
 The command 
 
