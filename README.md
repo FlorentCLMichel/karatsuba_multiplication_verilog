@@ -59,6 +59,21 @@ $$
     C_m(B) \mathop{\propto}_{B \to \infty} B^{\log_2(3)} \approx B^{1.58496} .
 $$
 
+## The Karatsuba multiplication module
+
+The module `karatsuba_mul` is defined in the file `src/karatsuba_mul.v`. 
+
+**Parameters:**
+
+* `N_BITS`: Number of bits to represent each natural number (also called *bit depth*). We use a binary little-endian representation. So, if $n$ is a natural integer and $a_0$, $a_1$, ..., $a_n$ are $n+1$ elements of $\lbrace 0, 1 \rbrace$, the array $[a_0, a_0, \dots, a_n]$ represents the number $\sum_{l=0}^n 2^l \, a_l$.
+* `MAX_N_BITS_STANDARD_MUL`: Maximum bit depth for which the textbook multiplication algorithm is used instead of the Karatsuba algorithm. This parameter must be at least equal to $3$. (The algorithm shown above does not work for `N_BITS = 3` as $a_0 + a_1$ and $b_0 + b_1$ then also have a bit depth of $3$, so the algorithm would not terminate.)
+
+**Arguments:**
+
+* `a` (input wire, size `N_BITS`): left input
+* `b` (input wire, size `N_BITS`): right input
+* `c` (output wire, size `2*N_BITS`): product of `a` and `b`
+
 ## How to run the tests
 
 ### Requirements

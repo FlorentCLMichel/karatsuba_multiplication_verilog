@@ -5,7 +5,9 @@
 // multiplication of two positive integers using the Karatsuba algorithm
 //
 // Parameters: 
-//  N_BITS: number of bits for each input
+//  N_BITS:                  number of bits for each input
+//  MAX_N_BITS_STANDARD_MUL: maximum bit depth using the standard multiplication
+//                           (must be larger than or equal to 3)
 // 
 // Arguments: 
 //  * a (size N_BITS):   left input
@@ -13,12 +15,12 @@
 //  * c (size 2*N_BITS): output
 module karatsuba_mul (a, b, c);
 
-parameter N_BITS = 15;
+parameter N_BITS = 15,
+          MAX_N_BITS_STANDARD_MUL = 4;
 
 localparam N_BITS_1 = N_BITS / 2,     // bit depth of a_1 and b_1
            N_BITS_2 = (N_BITS+1) / 2; // bit depth of a_0 and b_0
 localparam N_BITS_3 = N_BITS_2+1;     // bit depth of a_1+b_1
-localparam MAX_N_BITS_STANDARD_MUL = 4; // maximum bit depth using the standard multiplication
 
 input wire [N_BITS-1:0] a, b;
 output wire [2*N_BITS-1:0] c;

@@ -21,7 +21,7 @@ unsigned int mul(unsigned int x, unsigned int y, MODULE* top)
 
 int main(int argc, char** argv, char** env) {
 
-    std::cout << "KARATSUBA_1...";
+    std::cout << "Karatsuba_1...";
     std::cout.flush();
     
     // define the module

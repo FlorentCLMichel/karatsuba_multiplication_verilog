@@ -2,12 +2,14 @@
 
 module karatsuba_1 (a, b, c);
 
-// bit depth
-localparam BIT_DEPTH = 16;
+localparam N_BITS = 16,
+           MAX_N_BITS_STANDARD_MUL = 4;
 
-input wire [BIT_DEPTH-1:0] a, b;
-output wire [2*BIT_DEPTH-1:0] c;
+input wire [N_BITS-1:0] a, b;
+output wire [2*N_BITS-1:0] c;
 
-karatsuba_mul #(BIT_DEPTH) KM (a, b, c);
+karatsuba_mul 
+    #(.N_BITS(N_BITS), .MAX_N_BITS_STANDARD_MUL(MAX_N_BITS_STANDARD_MUL)) 
+    KM (.a(a), .b(b), .c(c));
 
 endmodule
