@@ -89,7 +89,7 @@ If you have `make, you may run the test `TEST` using the command
 make name=TEST test
 ```
 
-You may also use diectly
+You may also use directly
 ```
 verilator --cc --exe --build tests/TEST.cpp tests/TEST.v --top-module TEST
 ```
