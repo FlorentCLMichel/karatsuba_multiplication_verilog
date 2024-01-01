@@ -83,7 +83,7 @@ The module `karatsuba_mul` is defined in the file `src/karatsuba_mul.v`.
 
 ### Run a test
 
-If you have `make, you may run the test `TEST` using the command
+If you have `make`, you may run the test `TEST` using the command
 
 ```
 make name=TEST test
