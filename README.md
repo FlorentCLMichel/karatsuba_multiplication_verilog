@@ -2,7 +2,9 @@
 
 This is a simple implementation of the Karatsuba multiplication algorithm in Verilog. The Karatsuba algorithm has a lower asymptotic complexity than textbook multiplication (in $\Theta(B^{\log_2(3)})$, where $B$ is the bit depth, versus $\Theta(B^2)$), so is typically faster for large numbers.
 
-**NB:** Fourier-based algorithms are even more efficient asymptotically, with complexities in $O(B \, (\log B)^\alpha)$ for positive any $\alpha > 1$.
+**NB:** This implementation should be seen as an illustration of how to implement the Karatsuba algorithm in Verilog, not as module to be used as-is in real designs. In particular, actual Hardware implementation would likely benefit from more careful data pipelining and/or the use of standard multpipliers to make use of existing DSPs.
+
+**NB2:** Fourier-based algorithms are even more efficient asymptotically, with complexities in $O(B \, (\log B)^\alpha)$ for positive any $\alpha > 1$.
 
 ## Theory
 
